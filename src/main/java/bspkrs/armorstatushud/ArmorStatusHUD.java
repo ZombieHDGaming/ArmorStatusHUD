@@ -219,10 +219,10 @@ public class ArmorStatusHUD
 
     public static boolean playerHasArmorEquipped(EntityPlayer player)
     {
-        return (!player.inventory.armorItemInSlot(0).isEmpty()) ||
-                (!player.inventory.armorItemInSlot(1).isEmpty()) ||
-                (!player.inventory.armorItemInSlot(2).isEmpty()) ||
-                (!player.inventory.armorItemInSlot(3).isEmpty());
+        return (!player.inventory.armorItemInSlot(0).func_190926_b()) ||
+                (!player.inventory.armorItemInSlot(1).func_190926_b()) ||
+                (!player.inventory.armorItemInSlot(2).func_190926_b()) ||
+                (!player.inventory.armorItemInSlot(3).func_190926_b());
     }
 
     public static int countOfDisplayableItems(EntityPlayer player)
@@ -239,7 +239,7 @@ public class ArmorStatusHUD
 
     public static boolean canDisplayItem(ItemStack item)
     {
-        return !item.isEmpty();
+        return !item.func_190926_b();
     }
 
     private static void getHUDElements(Minecraft mc)
@@ -248,15 +248,15 @@ public class ArmorStatusHUD
 
         for (int i = 3; i >= -2; i--)
         {
-            ItemStack itemStack = ItemStack.EMPTY;
+            ItemStack itemStack = ItemStack.field_190927_a;
             if (i == -1)
-                itemStack = showEquippedItem ? mc.player.getHeldItemOffhand() : ItemStack.EMPTY;
+                itemStack = showEquippedItem ? mc.player.getHeldItemOffhand() : ItemStack.field_190927_a;
             else if (i == -2)
-                itemStack = showEquippedItem ? mc.player.getHeldItemMainhand() : ItemStack.EMPTY;
+                itemStack = showEquippedItem ? mc.player.getHeldItemMainhand() : ItemStack.field_190927_a;
             else
                 itemStack = mc.player.inventory.armorInventory.get(i);
 
-            if (!itemStack.isEmpty())
+            if (!itemStack.func_190926_b())
                 elements.add(new HUDElement(itemStack, 16, 16, 2, i > -1));
         }
     }
