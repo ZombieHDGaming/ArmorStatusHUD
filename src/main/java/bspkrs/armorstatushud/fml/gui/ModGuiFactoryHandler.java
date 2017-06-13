@@ -2,7 +2,6 @@ package bspkrs.armorstatushud.fml.gui;
 
 import java.util.Set;
 
-import bspkrs.bspkrscore.fml.gui.GuiBSConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.fml.client.IModGuiFactory;
@@ -22,7 +21,7 @@ public class ModGuiFactoryHandler implements IModGuiFactory
 
   @Override
   public GuiScreen createConfigGui(GuiScreen parentScreen) {
-    return new GuiBSConfig(parentScreen);
+    return new GuiASHConfig(parentScreen);
   }
 
   @Override
